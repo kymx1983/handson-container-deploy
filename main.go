@@ -8,7 +8,7 @@ import (
 )
 
 // バージョン番号
-const version = "1.0"
+const version = "2.0"
 
 // func unusedFunc() {} // ← 使用されていない公開関数（警告）
 
