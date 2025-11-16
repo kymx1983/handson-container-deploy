@@ -1,0 +1,30 @@
+{
+  "family": "test-taskdef",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::125605020607:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::125605020607:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "handson-container",
+      "image": "125605020607.dkr.ecr.ap-northeast-1.amazonaws.com/test-repository:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/test-service",
+          "awslogs-region": "ap-northeast-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
